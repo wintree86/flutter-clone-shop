@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dating_app/models/product.dart';
 import 'package:flutter_dating_app/widgets/simple_product.dart';
 
 final List<String> imgList = [
@@ -9,6 +10,34 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
   'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+];
+
+Product productBuilder(shop, title, price, sale, sellingCount) {
+  return new Product(
+      shop: shop,
+      title: title,
+      price: price,
+      sale: sale,
+      sellingCount: sellingCount);
+}
+
+List<Product> products = [
+  productBuilder('레몬트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder('레몬', '[원피스/4ps구성] 퍼펙트SET', 117500, 10.0, 33),
+  productBuilder('트리', '[원피스/4ps구성]', 1000, 0.0, 3),
+  productBuilder('몬트', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 20.0, 0),
+  productBuilder('레몬트', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 233),
+  productBuilder('몬트리', '[원피스/4ps구성]', 50500, 17.0, 2233),
+  productBuilder('레트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 30000, 16.0, 4533),
+  productBuilder('레몬리', '[원피스/4ps구성] 퍼펙트SET (5color)', 5000, 0.0, 12233),
+  productBuilder('레몬트', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 23233),
+  productBuilder('몬트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder('레트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder('레몬', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder('트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder('레리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder('레트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder('레몬', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
 ];
 
 class TodayTab extends StatefulWidget {
@@ -92,9 +121,12 @@ class _TodayTabState extends State<TodayTab> {
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
-                    return SimpleProduct();
+                    return SimpleProduct(
+                      item: products[index],
+                      index: index,
+                    );
                   },
-                  childCount: 20,
+                  childCount: products.length,
                 ),
               ),
             ),

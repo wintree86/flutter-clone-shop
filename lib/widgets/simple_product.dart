@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter_dating_app/models/product.dart';
+
+final formatCurrency = new NumberFormat("#,##0");
 
 class SimpleProduct extends StatelessWidget {
-  const SimpleProduct({Key key}) : super(key: key);
+  final Product item;
+  final int index;
+  SimpleProduct({this.item, this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +18,7 @@ class SimpleProduct extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(8)),
-              child: Image.network('https://picsum.photos/200',
+              child: Image.network('https://picsum.photos/seed/$index*3/200',
                   fit: BoxFit.cover, width: MediaQuery.of(context).size.width),
             ),
             Positioned(
@@ -27,17 +33,32 @@ class SimpleProduct extends StatelessWidget {
             )
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
-          child: Text(
-            '17,500',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          ),
+        Row(
+          children: [
+            if (item.sale > 0.0)
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
+                child: Text(
+                  '${item.sale.floor().toString()}% ',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.red),
+                ),
+              ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
+              child: Text(
+                formatCurrency.format(item.price),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+            ),
+          ],
         ),
         Padding(
           padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
           child: Text(
-            '레몬트리',
+            item.shop,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.grey[600],
@@ -47,12 +68,12 @@ class SimpleProduct extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(bottom: 12.0),
           child: Text(
-            '[원피스/4ps구성] 퍼펙트SET (5color)',
+            item.title,
             style: TextStyle(color: Colors.grey[600], fontSize: 12),
           ),
         ),
         Text(
-          '2,233개 구매중',
+          '${formatCurrency.format(item.sellingCount)} 개 구매중',
           style: TextStyle(color: Colors.grey, fontSize: 12),
         )
       ],
