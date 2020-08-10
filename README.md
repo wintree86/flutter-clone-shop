@@ -1,4 +1,4 @@
-# flutter_dating_app
+# flutter_clone_app
 
 A new Flutter project.
 
