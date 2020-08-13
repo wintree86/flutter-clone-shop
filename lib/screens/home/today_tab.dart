@@ -12,8 +12,9 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
 
-Product productBuilder(shop, title, price, sale, sellingCount) {
+Product productBuilder(productId, shop, title, price, sale, sellingCount) {
   return new Product(
+      productId: productId,
       shop: shop,
       title: title,
       price: price,
@@ -22,22 +23,22 @@ Product productBuilder(shop, title, price, sale, sellingCount) {
 }
 
 List<Product> products = [
-  productBuilder('레몬트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
-  productBuilder('레몬', '[원피스/4ps구성] 퍼펙트SET', 117500, 10.0, 33),
-  productBuilder('트리', '[원피스/4ps구성]', 1000, 0.0, 3),
-  productBuilder('몬트', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 20.0, 0),
-  productBuilder('레몬트', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 233),
-  productBuilder('몬트리', '[원피스/4ps구성]', 50500, 17.0, 2233),
-  productBuilder('레트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 30000, 16.0, 4533),
-  productBuilder('레몬리', '[원피스/4ps구성] 퍼펙트SET (5color)', 5000, 0.0, 12233),
-  productBuilder('레몬트', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 23233),
-  productBuilder('몬트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
-  productBuilder('레트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
-  productBuilder('레몬', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
-  productBuilder('트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
-  productBuilder('레리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
-  productBuilder('레트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
-  productBuilder('레몬', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder(1, '레몬트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder(2, '레몬', '[원피스/4ps구성] 퍼펙트SET', 117500, 10.0, 33),
+  productBuilder(3, '트리', '[원피스/4ps구성]', 1000, 0.0, 3),
+  productBuilder(4, '몬트', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 20.0, 0),
+  productBuilder(5, '레몬트', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 233),
+  productBuilder(6, '몬트리', '[원피스/4ps구성]', 50500, 17.0, 2233),
+  productBuilder(7, '레트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 30000, 16.0, 4533),
+  productBuilder(8, '레몬리', '[원피스/4ps구성] 퍼펙트SET (5color)', 5000, 0.0, 12233),
+  productBuilder(9, '레몬트', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 23233),
+  productBuilder(10, '몬트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder(11, '레트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder(12, '레몬', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder(13, '트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder(14, '레리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder(15, '레트리', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
+  productBuilder(16, '레몬', '[원피스/4ps구성] 퍼펙트SET (5color)', 17500, 0.0, 2233),
 ];
 
 class TodayTab extends StatefulWidget {

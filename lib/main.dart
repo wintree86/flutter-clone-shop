@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dating_app/screens/detail_product/detail_product.dart';
 import 'package:flutter_dating_app/screens/favorite/favorite_screen.dart';
 import 'package:flutter_dating_app/screens/home/home_screen.dart';
 import 'package:flutter_dating_app/screens/market/market_screen.dart';
@@ -18,8 +19,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Main(),
       debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Main(),
+        '/product': (context) => DetailProduct()
+      },
     );
   }
 }
